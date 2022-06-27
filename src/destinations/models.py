@@ -4,6 +4,6 @@ from django.db import models
 # Create your models here.
 class Destination(models.Model):
     nombre = models.CharField(max_length = 100)
-    img = models.ImageField(upload_to = 'pics')
+    img = models.ImageField(upload_to = 'pics')# necesario pip install Pillow
     descripcion = models.TextField()
     nombre = models.CharField(default = False)
