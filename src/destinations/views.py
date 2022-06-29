@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Destination
 from .forms import DestinationForm, RawDestinationForm
 
@@ -24,8 +24,8 @@ def destinationsCreate(request):
         form = RawDestinationForm(request.POST, request.FILES) # segun: https://www.geeksforgeeks.org/imagefield-django-forms/ es necesario el request.FILES en el views.py y el enctype="mulitpart/form-data" en el html
         if form.is_valid():
             print(form.cleaned_data)
-            Destination.objects.create(**form.cleaned_data)
-            form = RawDestinationForm()
+            obj = Destination.objects.create(**form.cleaned_data)
+            return redirect('../')
         else:
             print(form.errors)
     context = {
