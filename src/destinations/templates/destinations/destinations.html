@@ -1,4 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-
+{% for dest in destinations %}
+    <p>
+        {{ dest.id }}.-
+        <a href='.'>{{ dest.nombre }}
+    </p>
 {% endblock %}

@@ -6,6 +6,6 @@ from .models import Destination
 def destinationsList(request):
     queryset = Destination.objects.all()
     context = {
-        'objectList': queryset,
+        'destinations': queryset,
     }
     return render(request, 'destinations/destinations.html', context)
