@@ -1,5 +1,6 @@
 from distutils.command.upload import upload
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class Destination(models.Model):
@@ -8,3 +9,6 @@ class Destination(models.Model):
     descripcion = models.TextField()
     precio = models.IntegerField()
     oferta = models.BooleanField(default = False)
+
+    def get_absolute_url(self):
+        return reverse('', kwargs={'myID': self.id})
