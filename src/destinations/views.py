@@ -21,7 +21,7 @@ def destinationsShow(request, myID):
 def destinationsCreate(request):
     form = RawDestinationForm()
     if request.method == 'POST':
-        form = RawDestinationForm(request.POST)
+        form = RawDestinationForm(request.POST, request.FILES) # segun: https://www.geeksforgeeks.org/imagefield-django-forms/ es necesario el request.FILES en el views.py y el enctype="mulitpart/form-data" en el html
         if form.is_valid():
             print(form.cleaned_data)
             Destination.objects.create(**form.cleaned_data)
