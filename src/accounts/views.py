@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User,auth
-from .forms import UserForm
+from .forms import RawUserLoginForm
 
 
 # Create your views here.
 
 def login(request):
-    form = UserForm(request.POST or None)
+    form = RawUserLoginForm(request.POST or None)
     if form.is_valid():
         user = auth.authenticate(**form.cleaned_data)
     else:
