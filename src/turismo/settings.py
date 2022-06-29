@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'destinations.apps.DestinationsConfig', # una opcion es solo colocar el nombre de la app 'destinations',
 ]
 
 MIDDLEWARE = [
