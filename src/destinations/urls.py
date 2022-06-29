@@ -11,5 +11,5 @@ urlpatterns = [
     path('', destinationsList, name="lista"),
     path('<int:myID>/', destinationsShow, name="descripcion"),
     path('create/', destinationsCreate, name="crear"),
-    path('edit/<int:myID>/', destinationsEdit, name="editar"),
+    path('<int:myID>/edit/', destinationsEdit, name="editar"),
 ]

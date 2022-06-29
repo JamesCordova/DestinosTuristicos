@@ -38,7 +38,7 @@ def destinationsEdit(request, myID):
     form = DestinationForm(request.POST or None, instance = obj)
     if form.is_valid():
         form.save()
-        return redirect('../../' + obj.id + '/')
+        return redirect('../')
     context = {
         'form': form,
     }
