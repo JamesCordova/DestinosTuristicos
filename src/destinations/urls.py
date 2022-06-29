@@ -8,6 +8,7 @@ from .views import (
     destinationsDelete,
 )
 
+app_name = 'destinations'
 urlpatterns = [
     path('', destinationsList, name="lista"),
     path('<int:myID>/', destinationsShow, name="descripcion"),
