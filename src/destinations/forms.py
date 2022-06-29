@@ -4,13 +4,13 @@ from .models import Destination
 class DestinationForm(forms.ModelForm):
     class Meta:
         model = Destination
-        fields = {
+        fields = [
             'nombre',
             'img',
             'descripcion',
             'precio',
             'oferta',
-        }
+        ] # {} era un conjunto, por lo que no habia posiciones, entonces con [] que son listas, los elementos si tienen posicion
 
 class RawDestinationForm(forms.Form):
     nombre = forms.CharField(label = 'Nombre del lugar',
