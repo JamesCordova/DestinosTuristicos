@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Destination
-from .forms import RawDestinationForm
+from .forms import DestinationForm, RawDestinationForm
 
 # Create your views here.
 
@@ -25,7 +25,6 @@ def destinationsCreate(request):
         if form.is_valid():
             print(form.cleaned_data)
             Destination.objects.create(**form.cleaned_data)
-            form = RawDestinationForm()
         else:
             print(form.errors)
     context = {

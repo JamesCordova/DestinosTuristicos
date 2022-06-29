@@ -21,6 +21,13 @@ class RawDestinationForm(forms.Form):
         )
     )
     img = forms.ImageField(label = 'Imagen del lugar')
-    descripcion = forms.CharField(label = 'Descripcion del lugar')
+    descripcion = forms.CharField(label = 'Descripcion del lugar',
+    widget = forms.Textarea(
+        attrs = {
+            'placeholder': 'Ingrese la descripcion del lugar',
+            'cols': 30,
+            'rows': 10,
+        }
+    ))
     precio = forms.IntegerField()
     oferta = forms.BooleanField()
