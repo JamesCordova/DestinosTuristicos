@@ -30,4 +30,4 @@ class RawDestinationForm(forms.Form):
         }
     ))
     precio = forms.IntegerField()
-    oferta = forms.BooleanField()
+    oferta = forms.BooleanField(required = False)
