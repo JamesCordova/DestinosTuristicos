@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from .models import Destination
 from .forms import DestinationForm, RawDestinationForm
 
@@ -12,7 +12,7 @@ def destinationsList(request):
     return render(request, 'destinations/destinations.html', context)
 
 def destinationsShow(request, myID):
-    obj = Destination.objects.get(id = myID)
+    obj = get_object_or_404(Destination, id = myID)
     context = {
         'dest': obj,
     }
@@ -38,7 +38,7 @@ def destinationsEdit(request, myID):
     form = DestinationForm(request.POST or None, instance = obj)
     if form.is_valid():
         form.save()
-        form = DestinationForm()
+        return destinationsShow(request, obj.id)
     context = {
         'form': form,
     }
