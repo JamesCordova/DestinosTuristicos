@@ -3,7 +3,7 @@
 {% for dest in destinations %}
     <p>
         {{ dest.id }}.-
-        <a href='.'>{{ dest.nombre }}
+        <a href='{{ dest.get_absolute_url }}'>{{ dest.nombre }}
     </p>
 {% endfor %}
 {% endblock %}
