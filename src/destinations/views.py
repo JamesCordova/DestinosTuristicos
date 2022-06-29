@@ -42,4 +42,4 @@ def destinationsEdit(request, myID):
     context = {
         'form': form,
     }
-    return render(request, 'destinations/personasCreate.html', context)
+    return render(request, 'destinations/destinationsCreate.html', context)
