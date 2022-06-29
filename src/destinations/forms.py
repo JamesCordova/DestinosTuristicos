@@ -20,7 +20,7 @@ class RawDestinationForm(forms.Form):
             }
         )
     )
-    img = forms.ImageField()
-    descripcion = forms.CharField()
+    img = forms.ImageField(label = 'Imagen del lugar')
+    descripcion = forms.CharField(label = 'Descripcion del lugar')
     precio = forms.IntegerField()
     oferta = forms.BooleanField()
