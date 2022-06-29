@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="POST">{% csrf_token %}
+    <h2>Desea borrar el destino: </h2>
+    <h3>{{ dest.nombre }}</h3>
+    <p>{{ dest.descripcion }} </p>
+    <input type="submit" value="Sí"/>
+    <a href="../">Cancelar</a>
+</form>
+{% endblock %}
