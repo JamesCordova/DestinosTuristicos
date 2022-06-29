@@ -32,3 +32,14 @@ def destinationsCreate(request):
         'form': form,
     }
     return render(request, 'destinations/destinationsCreate.html', context)
+
+def destinationsEdit(request, myID):
+    obj = Destination.objects.get(id = myID)
+    form = DestinationForm(request.POST or None, instance = obj)
+    if form.is_valid():
+        form.save()
+        form = DestinationForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'destinations/personasCreate.html', context)
