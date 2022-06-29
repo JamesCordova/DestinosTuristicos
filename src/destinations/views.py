@@ -34,7 +34,7 @@ def destinationsCreate(request):
     return render(request, 'destinations/destinationsCreate.html', context)
 
 def destinationsEdit(request, myID):
-    obj = Destination.objects.get(id = myID)
+    obj = get_object_or_404(Destination, id = myID)
     form = DestinationForm(request.POST or None, instance = obj)
     if form.is_valid():
         form.save()
@@ -43,3 +43,13 @@ def destinationsEdit(request, myID):
         'form': form,
     }
     return render(request, 'destinations/destinationsCreate.html', context)
+
+def destinationsDelete(request, myID):
+    obj = get_object_or_404(Destination, id = myID)
+    if request.method == 'POST':
+        print('Se borro el elemento')
+        obj.delete()
+    context = {
+        'dest': obj,
+    }
+    return render(request, 'destinations/destinationsDelete.html', context)
