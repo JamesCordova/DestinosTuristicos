@@ -49,6 +49,7 @@ def destinationsDelete(request, myID):
     if request.method == 'POST':
         print('Se borro el elemento')
         obj.delete()
+        return redirect('../../')
     context = {
         'dest': obj,
     }
