@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Destination
+from .forms import RawDestinationForm
 
 # Create your views here.
 
@@ -16,3 +17,10 @@ def destinationsShow(request, myID):
         'dest': obj,
     }
     return render(request, 'destinations/destinationsShow.html', context)
+
+def destinationsCreate(request):
+    form = RawDestinationForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'destinations/destinationsCreate', context)
