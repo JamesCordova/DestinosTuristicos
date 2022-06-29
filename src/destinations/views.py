@@ -23,4 +23,4 @@ def destinationsCreate(request):
     context = {
         'form': form,
     }
-    return render(request, 'destinations/destinationsCreate', context)
+    return render(request, 'destinations/destinationsCreate.html', context)
