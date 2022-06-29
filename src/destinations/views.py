@@ -20,6 +20,14 @@ def destinationsShow(request, myID):
 
 def destinationsCreate(request):
     form = RawDestinationForm()
+    if request.method == 'POST':
+        form = RawDestinationForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data)
+            Destination.objects.create(**form.cleaned_data)
+            form = RawDestinationForm()
+        else:
+            print(form.errors)
     context = {
         'form': form,
     }
