@@ -9,3 +9,10 @@ def destinationsList(request):
         'destinations': queryset,
     }
     return render(request, 'destinations/destinations.html', context)
+
+def destinationsShow(request, myID):
+    obj = Destination.objects.get(id = myID)
+    context = {
+        'dest': obj,
+    }
+    return render(request, 'destinations/destinationsShow.html', context)
