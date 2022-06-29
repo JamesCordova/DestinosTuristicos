@@ -5,6 +5,7 @@ from .views import (
     destinationsShow,
     destinationsCreate,
     destinationsEdit,
+    destinationsDelete,
 )
 
 urlpatterns = [
@@ -12,4 +13,5 @@ urlpatterns = [
     path('<int:myID>/', destinationsShow, name="descripcion"),
     path('create/', destinationsCreate, name="crear"),
     path('<int:myID>/edit/', destinationsEdit, name="editar"),
+    path('<int:myID>/delete/', destinationsDelete, name="eliminar"),
 ]
