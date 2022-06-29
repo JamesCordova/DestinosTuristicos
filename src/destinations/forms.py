@@ -13,11 +13,10 @@ class DestinationForm(forms.ModelForm):
         }
 
 class RawDestinationForm(forms.Form):
-    nombre = forms.CharField(
+    nombre = forms.CharField(label = 'Nombre del lugar',
         widget = forms.TextInput(
             attrs = {
                 'placeholder': 'Ingrese el nombre',
-                'label': 'Nombre del lugar',
             }
         )
     )
