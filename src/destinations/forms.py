@@ -14,7 +14,7 @@ class DestinationForm(forms.ModelForm):
 
 class RawDestinationForm(forms.Form):
     nombre = forms.CharField(
-        widget = forms.Input(
+        widget = forms.TextInput(
             attrs = {
                 'placeholder': 'Ingrese el nombre',
                 'label': 'Nombre del lugar',
@@ -22,6 +22,6 @@ class RawDestinationForm(forms.Form):
         )
     )
     img = forms.ImageField()
-    descripcion = forms.TextField()
+    descripcion = forms.CharField()
     precio = forms.IntegerField()
     oferta = forms.BooleanField()
