@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'destinations.apps.DestinationsConfig', # una opcion es solo colocar el nombre de la app 'destinations',
     'accounts.apps.AccountsConfig',
+    'travello.apps.TravelloConfig',
 ]
 
 MIDDLEWARE = [
