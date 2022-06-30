@@ -29,7 +29,13 @@ def logout(request):
 def register(request):
     form = RawUserRegisterForm(request.POST or None)
     if form.is_valid():
-        user = User.objects.create_user(**form.cleaned_data)
+        user = User.objects.create_user(
+            username = form.username,
+            password = form.password1,
+            email = form.email,
+            first_name = form.first_name,
+            last_name = form.last_name
+        )# no encontre forma de hacerlo mediante el form.cleaned_data
         user.save()
     else:
         print(form.errors)
