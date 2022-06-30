@@ -290,17 +290,17 @@
 							<div class="destination item">
 								<div class="destination_image">
 									<img src="{{ dest.img.url }}" alt="image"><!--Para corregir llamar un valor en un tag ademas de concatenar definiremos un valor para la ruta-->
-									{% if dest.offer %}
+									{% if dest.oferta %}
 									<div class="spec_offer text-center"><a href="#">Special Offer</a></div>
 									{% endif %}
 								</div>
 								<div class="destination_content">
-									<div class="destination_title"><a href="destinations.html">{{ dest.name}}</a>
+									<div class="destination_title"><a href="destinations.html">{{ dest.nombre }}</a>
 									</div>
 									<div class="destination_subtitle">
-										<p>{{ dest.desc }} </p>
+										<p>{{ dest.descripcion }} </p>
 									</div>
-									<div class="destination_price">From ${{ dest.price }}</div>
+									<div class="destination_price">From ${{ dest.precio }}</div>
 								</div>
 							</div>
 							{% endfor %}
