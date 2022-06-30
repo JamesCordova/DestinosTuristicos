@@ -11,4 +11,4 @@ class Destination(models.Model):
     oferta = models.BooleanField(default = False)
 
     def get_absolute_url(self):
-        return reverse('descripcion', kwargs={'myID': self.id})
+        return reverse('destinations:descripcion', kwargs={'myID': self.id})

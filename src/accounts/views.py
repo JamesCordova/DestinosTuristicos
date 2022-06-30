@@ -30,11 +30,11 @@ def register(request):
     form = RawUserRegisterForm(request.POST or None)
     if form.is_valid():
         user = User.objects.create_user(
-            username = form.username,
-            password = form.password1,
-            email = form.email,
-            first_name = form.first_name,
-            last_name = form.last_name
+            username = form.cleaned_data.get('username'),
+            password = form.cleaned_data.get('password1'),
+            email = form.cleaned_data.get('email'),
+            first_name = form.cleaned_data.get('first_name'),
+            last_name = form.cleaned_data.get('last_name')
         )# no encontre forma de hacerlo mediante el form.cleaned_data
         user.save()
     else:
