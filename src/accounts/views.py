@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
-from .forms import RawUserLoginForm
+from .forms import RawUserLoginForm, RawUserRegisterForm
 
 
 # Create your views here.
@@ -25,3 +25,15 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('/')
+
+def register(request):
+    form = RawUserRegisterForm(request.POST or None)
+    if form.is_valid():
+        user = User.objects.create_user(**form.cleaned_data)
+        user.save()
+    else:
+        print(form.errors)
+    context = {
+        'form': form,
+    }
+    return render(request, 'accounts/register.html', context)
