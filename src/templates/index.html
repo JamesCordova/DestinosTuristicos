@@ -291,7 +291,13 @@
 								<div class="destination_image">
 									<img src="{{ dest.img.url }}" alt="image"><!--Para corregir llamar un valor en un tag ademas de concatenar definiremos un valor para la ruta-->
 									{% if dest.oferta %}
-									<div class="spec_offer text-center"><a href="#">Special Offer</a></div>
+									<div class="spec_offer text-center">
+										{% if user.is_authenticated %}
+										<a href="accounts/login">Special Offer</a>
+										{% else %}
+										<a href="destinations/{{ dest.id }}">Special Offer</a>
+										{% endif %}
+									</div>
 									{% endif %}
 								</div>
 								<div class="destination_content">
