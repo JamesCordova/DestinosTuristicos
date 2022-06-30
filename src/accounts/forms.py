@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.auth.models import User
 
 class RawUserLoginForm(forms.Form):
     username = forms.CharField(label='Usuario')
@@ -46,3 +47,23 @@ class RawUserRegisterForm(forms.Form):
             'placeholder': 'Ingrese de nuevo su contraseña',
         }
     ))
+
+    def clean_username(self, *args, **kwargs):
+        username = self.cleaned_data.get("username")
+        if User.objects.filter(username = username).exists():
+            raise forms.ValidationError('Nombre de usuario existente')
+        return username
+    
+    def clean_password1(self, *args, **kwargs):
+        password1 = self.cleaned_data['password1']
+        password2 = self.cleaned_data['password2']
+        if password1 and password2 and password1 != password2:
+            raise forms.ValidationError('Las contraseñas no coinciden')
+        return password1
+    
+    def clean_email(self, *args, **kwargs):
+        email = self.cleaned_data.get("email")
+        if User.objects.filter(email = email).exists():
+            raise forms.ValidationError('Este correo ya es utilizado por otra cuenta')
+        return email
+    
