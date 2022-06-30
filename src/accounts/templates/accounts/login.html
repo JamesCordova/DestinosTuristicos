@@ -4,4 +4,9 @@
     {{ form.as_p }}
     <input type="submit" value="Ingresar"/>
 </form>
+<div>
+    {% for message in messages %}
+        <h4>{{ message }} </h4>
+    {% endfor %}
+</div>
 {% endblock %}
