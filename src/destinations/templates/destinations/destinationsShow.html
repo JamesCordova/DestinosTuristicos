@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="spec_offer text-center">
+<div class="home_search_button text-center" style="font-size:140%; padding:6px">
     <a href="/destinations/">All Destinations</a>
 </div>
 <div class="section_title">
     <h2> Descripcion del Destino <h2>
 </div>
 
-<div class="destination item">
+<div class="destination item container">
     <div class="destination_image">
         <img src="{{ dest.img.url }}" alt="image">
         {% if dest.oferta %}
