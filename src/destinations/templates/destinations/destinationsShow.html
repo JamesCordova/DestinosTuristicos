@@ -1,7 +1,33 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>{{ dest.nombre }} </h2>
-<p>{{ dest.oferta }} </p>
-<p>{{ dest.precio }} </p>
-<p>{{ dest.descripcion }} </p>
+<div class="spec_offer text-center">
+    <a href="/destinations/">All Destinations</a>
+</div>
+<div class="section_title">
+    <h2> Descripcion del Destino <h2>
+</div>
+
+<div class="destination item">
+    <div class="destination_image">
+        <img src="{{ dest.img.url }}" alt="image">
+        {% if dest.oferta %}
+        <div class="spec_offer text-center">
+            {% if user.is_authenticated %}
+            <a href="destinations/{{ dest.id }}">Oferta Especial</a>
+            {% else %}
+            <a href="accounts/login">Oferta Especial</a>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+    <div class="destination_content">
+        <div class="destination_title">
+            <a href="#spec_offer">{{ dest.nombre }}</a> <!-- se coloco con el tag a para que siga teniendo el mismo css ademas de redirigir a una clase-->
+        </div>
+        <div class="destination_subtitle">
+            <p>{{ dest.descripcion }} </p>
+        </div>
+        <div class="destination_price">Precio desde ${{ dest.precio }}</div>
+    </div>
+</div>
 {% endblock %}
