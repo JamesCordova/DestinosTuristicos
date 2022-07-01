@@ -1,10 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
 <form method="POST">{% csrf_token %}
-    <h2>Desea borrar el destino: </h2>
-    <h3>{{ dest.nombre }}</h3>
-    <p>{{ dest.descripcion }} </p>
-    <input type="submit" value="Sí"/>
-    <a href="../">Cancelar</a>
+    <div class="section_title">
+        <h2>Desea borrar el destino: </h2>
+    </div>
+    <div class="destination_image">
+        <img src="{{ dest.img.url }}" alt="image">
+        {% if dest.oferta %}
+        <div class="spec_offer text-center">
+            {% if user.is_authenticated %}
+            <a href="destinations/{{ dest.id }}">Oferta Especial</a>
+            {% else %}
+            <a href="accounts/login">Oferta Especial</a>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+    <div class="destination_title">
+        <a href="#destination_image">{{ dest.nombre }}</a> <!-- se coloco con el tag a para que siga teniendo el mismo css ademas de redirigir a una clase-->
+    </div>
+    <input class="home_search_button text-center" type="submit" value="Confirmar"/>
+    <div class="home_search_button text-center" style="padding:8px">
+        <a href="/destinations">Cancelar</a>
+    </div>
 </form>
 {% endblock %}
