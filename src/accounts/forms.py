@@ -22,36 +22,42 @@ class RawUserRegisterForm(forms.Form):
     widget = forms.TextInput(
         attrs = {
             'placeholder': 'Nombres',
+            'class': 'search_input',
         }
     ))
     last_name = forms.CharField(label='Apellido',
     widget = forms.TextInput(
         attrs = {
             'placeholder': 'Apellidos',
+            'class': 'search_input',
         }
     ))
     username = forms.CharField(label='Usuario',
     widget = forms.TextInput(
         attrs = {
             'placeholder': 'Nombre de usuario',
+            'class': 'search_input',
         }
     ))
     email = forms.CharField(label='Correo Electrónico',
     widget = forms.EmailInput(
         attrs = {
             'placeholder': 'Correo electrónico',
+            'class': 'search_input',
         }
     ))
     password1 = forms.CharField(label='Contraseña',
     widget = forms.PasswordInput(
         attrs = {
             'placeholder': 'Ingrese su contraseña',
+            'class': 'search_input',
         }
     ))
     password2 = forms.CharField(label='Confirmar Contraseña',
     widget = forms.PasswordInput(
         attrs = {
-            'placeholder': 'Ingrese de nuevo su contraseña',
+            'placeholder': 'Confirme su contraseña',
+            'class': 'search_input',
         }
     ))
 
