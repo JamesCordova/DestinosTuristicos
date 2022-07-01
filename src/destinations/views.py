@@ -13,7 +13,6 @@ def destinationsList(request):
 
 def destinationsShow(request, myID):
     if not(request.user.is_authenticated):# no halle forma que fuese solo una funcion
-        print('no logeado')
         return redirect('/accounts/login')
     obj = get_object_or_404(Destination, id = myID)
     context = {
@@ -23,10 +22,6 @@ def destinationsShow(request, myID):
 
 def destinationsCreate(request):
     if not(request.user.is_authenticated):
-        print('no logeado')
-        return redirect('/accounts/login')
-    if not(request.user.is_authenticated):
-        print('no logeado')
         return redirect('/accounts/login')
     form = RawDestinationForm()
     if request.method == 'POST':
@@ -44,7 +39,6 @@ def destinationsCreate(request):
 
 def destinationsEdit(request, myID):
     if not(request.user.is_authenticated):
-        print('no logeado')
         return redirect('/accounts/login')
     obj = get_object_or_404(Destination, id = myID)
     form = DestinationForm(request.POST or None, request.FILES or None, instance = obj)
@@ -58,7 +52,6 @@ def destinationsEdit(request, myID):
 
 def destinationsDelete(request, myID):
     if not(request.user.is_authenticated):
-        print('no logeado')
         return redirect('/accounts/login')
     obj = get_object_or_404(Destination, id = myID)
     if request.method == 'POST':
