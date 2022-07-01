@@ -11,6 +11,28 @@ class DestinationForm(forms.ModelForm):
             'precio',
             'oferta',
         ] # {} era un conjunto, por lo que no habia posiciones, entonces con [] que son listas, los elementos si tienen posicion
+        widgets = {
+            'nombre': forms.TextInput(
+                attrs = {
+                    'placeholder': 'Ingrese el nombre',
+                    'class': 'search_input',
+                }
+            ),
+            'descripcion': forms.Textarea(
+                attrs = {
+                    'placeholder': 'Ingrese la descripcion del lugar',
+                    'class': 'search_input',
+                    'cols': 50,
+                    'rows': 20,
+                }
+            ),
+            'precio': forms.NumberInput(
+                attrs = {
+                    'placeholder': 'Precio en $',
+                    'class': 'search_input',
+                }
+            ),
+        }
 
 class RawDestinationForm(forms.Form):
     nombre = forms.CharField(label = 'Nombre del lugar',
@@ -27,8 +49,8 @@ class RawDestinationForm(forms.Form):
         attrs = {
             'placeholder': 'Ingrese la descripcion del lugar',
             'class': 'search_input',
-            'cols': 30,
-            'rows': 10,
+            'cols': 50,
+            'rows': 20,
         }
     ))
     precio = forms.IntegerField(
