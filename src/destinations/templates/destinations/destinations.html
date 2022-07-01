@@ -11,8 +11,9 @@
     <div class="destinations_row">
     {% for dest in destinations %}
         <p>
-            {{ dest.id }}.-
-            <a href='{{ dest.get_absolute_url }}'>{{ dest.nombre }}</a>
+            <div class="news_post_title">
+                <a href='{{ dest.get_absolute_url }}'>{{ dest.id }}.- {{ dest.nombre }}</a>
+            </div>
             {% if user.is_staff %}
                 <a class="home_search_button text-center" style="padding:5px" href="{{ dest.get_absolute_url }}edit">Editar</a>
                 <a class="home_search_button text-center" style="padding:5px" href="{{ dest.get_absolute_url }}delete">Eliminar</a>
