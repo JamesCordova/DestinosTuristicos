@@ -3,38 +3,34 @@
 <div class="home_search_button text-center" style="font-size:140%; padding:6px">
     <a href="/destinations/">All Destinations</a>
 </div>
-<div class="section_title">
-    <h2> Descripcion del Destino <h2>
+<div class="section_title text-center">
+    <h2> Departamento del Perú <h2>
 </div>
 
-<div class="destination item container">
-    <div class="destination_image">
-        <img src="{{ dest.img.url }}" alt="image">
-        {% if dest.oferta %}
-        <div class="spec_offer text-center">
-            {% if user.is_authenticated %}
-            <a href="destinations/{{ dest.id }}">Oferta Especial</a>
-            {% else %}
-            <a href="accounts/login">Oferta Especial</a>
-            {% endif %}
-        </div>
+<div class="destination_image container">
+    <img src="{{ dest.img.url }}" alt="image">
+    {% if dest.oferta %}
+    <div class="spec_offer text-center">
+        {% if user.is_authenticated %}
+        <a href="destinations/{{ dest.id }}">Oferta Especial</a>
+        {% else %}
+        <a href="accounts/login">Oferta Especial</a>
         {% endif %}
     </div>
-    <div class="destination_content">
-        <div class="destination_title">
-            <a href="#destination_image">{{ dest.nombre }}</a> <!-- se coloco con el tag a para que siga teniendo el mismo css ademas de redirigir a una clase-->
-        </div>
-        <div class="destination_subtitle">
-            <p>{{ dest.descripcion }} </p>
-        </div>
-        <div class="destination_price">Precio desde ${{ dest.precio }}
-            {% if user.is_authenticated %}
-                {% if user.is_staff %}
-                    <a class="home_search_button text-center" style="padding:5px" href="./edit">Editar</a>
-                    <a class="home_search_button text-center" style="padding:5px" href="./delete">Eliminar</a>
-                {% endif %}
-            {% endif %}
-        </div>
+    {% endif %}
+    <div class="destination_title">
+        <a href="#destination_image">{{ dest.nombre }}</a> <!-- se coloco con el tag a para que siga teniendo el mismo css ademas de redirigir a una clase-->
     </div>
+            <div class="destination_subtitle">
+                <p>{{ dest.descripcion }} </p>
+            </div>
+            <div class="destination_price">Precio desde ${{ dest.precio }}
+                {% if user.is_authenticated %}
+                    {% if user.is_staff %}
+                        <a class="home_search_button text-center" style="padding:5px" href="./edit">Editar</a>
+                        <a class="home_search_button text-center" style="padding:5px" href="./delete">Eliminar</a>
+                    {% endif %}
+                {% endif %}
+            </div>
 </div>
 {% endblock %}
