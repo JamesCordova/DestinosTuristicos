@@ -12,7 +12,10 @@
     {% for dest in destinations %}
         <p>
             {{ dest.id }}.-
-            <a href='{{ dest.get_absolute_url }}'>{{ dest.nombre }}
+            <a href='{{ dest.get_absolute_url }}'>{{ dest.nombre }}</a><br>
+            {% if user.is_staff %}
+                <a class="home_search_button text-center" style="padding:5px" href="{{ dest.get_absolute_url }}/edit">Editar</a>
+            {% endif %}
         </p>
     {% endfor %}
     </div>
