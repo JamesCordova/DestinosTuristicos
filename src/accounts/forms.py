@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 class RawUserLoginForm(forms.Form):
     username = forms.CharField(label='Usuario',
-    widget = forms.PasswordInput(
+    widget = forms.TextInput(
         attrs = {
             'placeholder': 'Ingrese el usuario',
             'class': 'search_input',

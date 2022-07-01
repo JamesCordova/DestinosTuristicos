@@ -21,6 +21,9 @@ def destinationsShow(request, myID):
 
 def destinationsCreate(request):
     userIsLogged(request)
+    if not(request.user.is_authenticated):
+        print('no logeado')
+        return redirect('/')
     form = RawDestinationForm()
     if request.method == 'POST':
         form = RawDestinationForm(request.POST, request.FILES) # segun: https://www.geeksforgeeks.org/imagefield-django-forms/ es necesario el request.FILES en el views.py y el enctype="mulitpart/form-data" en el html
@@ -60,6 +63,8 @@ def destinationsDelete(request, myID):
     return render(request, 'destinations/destinationsDelete.html', context)
 
 def userIsLogged(request):
-    if not request.user.is_authenticated:
-        return redirect('/accounts/login')
-    return True
+    if not(request.user.is_authenticated):
+        print('no logeado')
+        return redirect('/')
+    else:
+        return True
