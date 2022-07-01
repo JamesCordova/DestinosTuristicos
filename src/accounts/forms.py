@@ -2,11 +2,18 @@ from django import forms
 from django.contrib.auth.models import User
 
 class RawUserLoginForm(forms.Form):
-    username = forms.CharField(label='Usuario')
+    username = forms.CharField(label='Usuario',
+    widget = forms.PasswordInput(
+        attrs = {
+            'placeholder': 'Ingrese el usuario',
+            'class': 'search_input',
+        }
+    ))
     password = forms.CharField(label='Contraseña',
     widget = forms.PasswordInput(
         attrs = {
             'placeholder': 'Ingrese su contraseña',
+            'class': 'search_input',
         }
     ))
 
