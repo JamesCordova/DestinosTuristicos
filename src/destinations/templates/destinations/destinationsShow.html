@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="home_search_button text-center" style="font-size:140%; padding:6px">
-    <a href="/destinations/">All Destinations</a>
-</div>
+<hr>
+<a class="home_search_button text-center" style="font-size:140%; padding:6px" href="/destinations/">All Destinations</a>
 <div class="section_title text-center">
     <h2> Departamento del Perú <h2>
 </div>
@@ -21,16 +20,17 @@
     <div class="destination_title">
         <a href="#destination_image">{{ dest.nombre }}</a> <!-- se coloco con el tag a para que siga teniendo el mismo css ademas de redirigir a una clase-->
     </div>
-            <div class="destination_subtitle">
-                <p>{{ dest.descripcion }} </p>
-            </div>
-            <div class="destination_price">Precio desde ${{ dest.precio }}
-                {% if user.is_authenticated %}
-                    {% if user.is_staff %}
-                        <a class="home_search_button text-center" style="padding:5px" href="./edit">Editar</a>
-                        <a class="home_search_button text-center" style="padding:5px" href="./delete">Eliminar</a>
-                    {% endif %}
+        <div class="destination_subtitle">
+            <p>{{ dest.descripcion }} </p>
+        </div>
+        <div class="destination_price">Precio desde ${{ dest.precio }}
+            {% if user.is_authenticated %}
+                {% if user.is_staff %}
+                    <a class="home_search_button text-center" style="padding:5px" href="./edit">Editar</a>
+                    <a class="home_search_button text-center" style="padding:5px" href="./delete">Eliminar</a>
                 {% endif %}
-            </div>
+            {% endif %}
+        </div>
+        <hr>
 </div>
 {% endblock %}
