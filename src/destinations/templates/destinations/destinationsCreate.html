@@ -5,9 +5,11 @@
 </div>
 <form method="POST" enctype="multipart/form-data" class="container text-center">{% csrf_token %}
     {{form.as_p}}
-    <input class="home_search_button text-center" type="submit" value="Guardar"/>
+    <input class="home_search_button text-center" style="background-color: green" type="submit" value="Guardar"/>
 </form>
-<div class="home_search_button container text-center" style="padding:8px">
-    <a href="/destinations">Cancelar</a>
+<br>
+<div class="container text-center">
+    <a class="home_search_button text-center" style="font-size:130%; padding:16px" href="/destinations">Cancelar</a>
 </div>
+<hr>
 {% endblock %}
