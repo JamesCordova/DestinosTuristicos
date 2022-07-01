@@ -35,7 +35,7 @@ def destinationsCreate(request):
 
 def destinationsEdit(request, myID):
     obj = get_object_or_404(Destination, id = myID)
-    form = DestinationForm(request.POST or None, instance = obj)
+    form = DestinationForm(request.POST or None, request.FILES or None, instance = obj)
     if form.is_valid():
         form.save()
         return redirect('../')
