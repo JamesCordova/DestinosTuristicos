@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
-<form method="POST">{% csrf_token %}
+<div class="section_title text-center">
+    <h2>Registrar nuevo usuario</h2>
+</div>
+<form method="POST" class="container text-center">{% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Registrar"/>
+    <input class="home_search_button text-center" type="submit" value="Registrar"/>
 </form>
 {% endblock %}
