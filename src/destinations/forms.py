@@ -17,6 +17,7 @@ class RawDestinationForm(forms.Form):
         widget = forms.TextInput(
             attrs = {
                 'placeholder': 'Ingrese el nombre',
+                'class': 'search_input',
             }
         )
     )
@@ -25,9 +26,17 @@ class RawDestinationForm(forms.Form):
     widget = forms.Textarea(
         attrs = {
             'placeholder': 'Ingrese la descripcion del lugar',
+            'class': 'search_input',
             'cols': 30,
             'rows': 10,
         }
     ))
-    precio = forms.IntegerField()
+    precio = forms.IntegerField(
+        widget = forms.NumberInput(
+            attrs = {
+                'placeholder': 'Precio en $',
+                'class': 'search_input',
+            }
+        )
+    )
     oferta = forms.BooleanField(required = False)
