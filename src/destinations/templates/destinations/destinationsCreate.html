@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
-<form method="POST" enctype="multipart/form-data">{% csrf_token %}
+<div class="section_title text-center">
+    <h2>Crear nuevo Destination</h2>
+</div>
+<form method="POST" enctype="multipart/form-data" class="container text-center">{% csrf_token %}
     {{form.as_p}}
-    <input type="submit" value="Guardar"/>
+    <input class="home_search_button text-center" type="submit" value="Guardar"/>
 </form>
+<div class="home_search_button container text-center" style="padding:8px">
+    <a href="/destinations">Cancelar</a>
+</div>
 {% endblock %}
