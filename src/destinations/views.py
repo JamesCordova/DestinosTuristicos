@@ -60,6 +60,6 @@ def destinationsDelete(request, myID):
     return render(request, 'destinations/destinationsDelete.html', context)
 
 def userIsLogged(request):
-    if not request.is_authenticated:
+    if not request.user.is_authenticated:
         return redirect('/accounts/login')
-    pass
+    return True
