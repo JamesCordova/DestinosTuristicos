@@ -1,9 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
-{% for dest in destinations %}
-    <p>
-        {{ dest.id }}.-
-        <a href='{{ dest.get_absolute_url }}'>{{ dest.nombre }}
-    </p>
-{% endfor %}
+<div class="destinations" id="destinations">
+    <div class="row">
+        <div class="col text-center">
+            <div class="section_title">
+                <h2>Lista de Destinos</h2>
+            </div>
+        </div>
+    </div>
+    <div class="destinations_row">
+    {% for dest in destinations %}
+        <p>
+            {{ dest.id }}.-
+            <a href='{{ dest.get_absolute_url }}'>{{ dest.nombre }}
+        </p>
+    {% endfor %}
+    </div>
+</div>
 {% endblock %}
