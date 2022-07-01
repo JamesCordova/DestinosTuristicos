@@ -12,7 +12,9 @@ def destinationsList(request):
     return render(request, 'destinations/destinations.html', context)
 
 def destinationsShow(request, myID):
-    userIsLogged(request)
+    if not(request.user.is_authenticated):# no halle forma que fuese solo una funcion
+        print('no logeado')
+        return redirect('/accounts/login')
     obj = get_object_or_404(Destination, id = myID)
     context = {
         'dest': obj,
@@ -20,10 +22,12 @@ def destinationsShow(request, myID):
     return render(request, 'destinations/destinationsShow.html', context)
 
 def destinationsCreate(request):
-    userIsLogged(request)
     if not(request.user.is_authenticated):
         print('no logeado')
-        return redirect('/')
+        return redirect('/accounts/login')
+    if not(request.user.is_authenticated):
+        print('no logeado')
+        return redirect('/accounts/login')
     form = RawDestinationForm()
     if request.method == 'POST':
         form = RawDestinationForm(request.POST, request.FILES) # segun: https://www.geeksforgeeks.org/imagefield-django-forms/ es necesario el request.FILES en el views.py y el enctype="mulitpart/form-data" en el html
@@ -39,7 +43,9 @@ def destinationsCreate(request):
     return render(request, 'destinations/destinationsCreate.html', context)
 
 def destinationsEdit(request, myID):
-    userIsLogged(request)
+    if not(request.user.is_authenticated):
+        print('no logeado')
+        return redirect('/accounts/login')
     obj = get_object_or_404(Destination, id = myID)
     form = DestinationForm(request.POST or None, request.FILES or None, instance = obj)
     if form.is_valid():
@@ -51,7 +57,9 @@ def destinationsEdit(request, myID):
     return render(request, 'destinations/destinationsCreate.html', context)
 
 def destinationsDelete(request, myID):
-    userIsLogged(request)
+    if not(request.user.is_authenticated):
+        print('no logeado')
+        return redirect('/accounts/login')
     obj = get_object_or_404(Destination, id = myID)
     if request.method == 'POST':
         print('Se borro el elemento')
@@ -61,10 +69,3 @@ def destinationsDelete(request, myID):
         'dest': obj,
     }
     return render(request, 'destinations/destinationsDelete.html', context)
-
-def userIsLogged(request):
-    if not(request.user.is_authenticated):
-        print('no logeado')
-        return redirect('/')
-    else:
-        return True
