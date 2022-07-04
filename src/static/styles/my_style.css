@@ -1,4 +1,4 @@
-.own-button-delete:hover, a:hover {
+.own-button-save:hover, .own-button-delete:hover, a:hover {
     color: white;
     filter: brightness(70%);
 }
@@ -29,6 +29,9 @@ a {
 .own-button-create {
     background-color: rgba(0, 151, 8, 0.993);
     margin-left: 90%;
+}
+.own-button-save {
+    background-color: rgba(0, 151, 8, 0.993);
 }
 .lit-image {
     margin: 10px;

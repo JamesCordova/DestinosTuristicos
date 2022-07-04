@@ -8,11 +8,11 @@
 </div>
 <form method="POST" enctype="multipart/form-data" class="container text-center">{% csrf_token %}
     {{form.as_p}}
-    <input class="home_search_button text-center" style="background-color: green" type="submit" value="Guardar"/>
+    <input class="home_search_button text-center own-button-save" type="submit" value="Guardar"/>
 </form>
 <br>
 <div class="container text-center">
-    <a class="home_search_button text-center" style="font-size:130%; padding:16px" href="/destinations">Cancelar</a>
+    <a class="home_search_button text-center own-button" href="/destinations">Cancelar</a>
 </div>
 <hr>
 {% endblock %}
