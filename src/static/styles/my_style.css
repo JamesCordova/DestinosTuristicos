@@ -41,6 +41,7 @@ a {
     height: 28%;
     display: flex;
     position: relative;
+    color: rgb(68, 68, 68);
 }
 .id-dest {
     font-family: 'Oswald', sans-serif;
