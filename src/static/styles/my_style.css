@@ -1,0 +1,49 @@
+.own-button-delete:hover, a:hover {
+    color: white;
+    filter: brightness(70%);
+}
+hr {
+    border: 1px solid transparent;
+}
+h3 {
+    color: black;
+}
+.dests {
+    display: flex;
+    flex-wrap: wrap;
+}
+.dests>* {
+    flex: 1 1 160px;
+}
+a {
+    height: 100%;
+}
+.own-button, .own-button-delete, .own-button-create {
+    padding: 10px;
+    border-radius: 15px;
+    align-items: center;
+} 
+.own-button-delete {
+    background-color: rgba(218, 0, 0, 0.993);
+}
+.own-button-create {
+    background-color: rgba(0, 151, 8, 0.993);
+    margin-left: 90%;
+}
+.lit-image {
+    margin: 10px;
+    width: 500px;
+    height: 300px;
+    object-fit: contain;
+    display: block;
+}
+.desc {
+    height: 28%;
+    display: flex;
+    position: relative;
+}
+.id-dest {
+    font-family: 'Oswald', sans-serif;
+    font-size: 50px;
+    color: #181818;
+}

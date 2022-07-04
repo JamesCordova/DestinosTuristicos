@@ -4,34 +4,39 @@
 {% endblock %}
 {% block content %}
 <div class="destinations" id="destinations">
-    <div class="row">
-        <div class="col text-center">
-            <div class="section_title">
-                <h2>Lista de Destinos</h2>
-            </div>
-        </div>
+    <div class="section_title text-center">
+        <h2>Lista de Destinos</h2>
     </div>
     {% if user.is_staff %}
-        <a class="home_search_button text-center" style="font-size:130%; padding:9px" href="/destinations/create">Create Destination</a>
+        <a class="home_search_button text-center own-button-create" href="/destinations/create">Create Destination</a>
     {% endif %}
     <hr>
-    <div class="">
+    <div class="dests">
     {% for dest in destinations %}
-        <p>
+        <div class="container">
+            <img class="lit-image" src="{{ dest.img.url }}" alt="image">
+        </div>
+        <div class="new_post_content">
+            <div class="id-dest">
+                <div>{{ dest.id }}</div>
+            </div>
             {% if user.is_authenticated %}
                 <div class="news_post_title">
-                    <a href='{{ dest.get_absolute_url }}'>{{ dest.id }}.- {{ dest.nombre }}</a>
+                    <a href='{{ dest.get_absolute_url }}'>{{ dest.nombre }}</a>
+                </div>
+                <div class="news_post_text desc">
+                    {{ dest.descripcion }}
                 </div>
                 {% if user.is_staff %}
-                    <a class="home_search_button text-center" style="padding:5px" href="{{ dest.get_absolute_url }}edit">Editar</a>
-                    <a class="home_search_button text-center" style="padding:5px" href="{{ dest.get_absolute_url }}delete">Eliminar</a>
+                    <a class="home_search_button text-center own-button" href="{{ dest.get_absolute_url }}edit">Editar</a>
+                    <a class="home_search_button text-center own-button-delete" href="{{ dest.get_absolute_url }}delete">Eliminar</a>
                 {% endif %}
             {% else %}
                 <div class="news_post_title">
                     <a href='/accounts/login'>{{ dest.id }}.- {{ dest.nombre }}</a>
                 </div>
             {% endif %}
-        </p>
+        </div>
     {% endfor %}
     </div>
 </div>
