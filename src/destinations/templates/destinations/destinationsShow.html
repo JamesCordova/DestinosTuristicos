@@ -4,7 +4,7 @@
 {% endblock %}
 {% block content %}
 <hr>
-<a class="home_search_button text-center" style="font-size:140%; padding:6px" href="/destinations/">All Destinations</a>
+<a class="home_search_button text-center own-button" href="/destinations/">All Destinations</a>
 <div class="section_title text-center">
     <h2> Departamento del Perú <h2>
 </div>
@@ -29,8 +29,8 @@
         <div class="destination_price">Precio desde ${{ dest.precio }}
             {% if user.is_authenticated %}
                 {% if user.is_staff %}
-                    <a class="home_search_button text-center" style="padding:5px" href="./edit">Editar</a>
-                    <a class="home_search_button text-center" style="padding:5px" href="./delete">Eliminar</a>
+                    <a class="home_search_button text-center own-button" href="./edit">Editar</a>
+                    <a class="home_search_button text-center own-button-delete" href="./delete">Eliminar</a>
                 {% endif %}
             {% endif %}
         </div>
