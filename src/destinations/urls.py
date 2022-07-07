@@ -6,6 +6,7 @@ from .views import (
     destinationsCreate,
     destinationsEdit,
     destinationsDelete,
+    noAccess,
 )
 
 app_name = 'destinations'
@@ -15,5 +16,5 @@ urlpatterns = [
     path('create/', destinationsCreate, name="crear"),
     path('<int:myID>/edit/', destinationsEdit, name="editar"),
     path('<int:myID>/delete/', destinationsDelete, name="eliminar"),
-    path('403/', destinationsDelete, name="sin-acceso"),
+    path('403/', noAccess, name="sin-acceso"),
 ]

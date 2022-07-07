@@ -70,3 +70,7 @@ def destinationsDelete(request, myID):
         'dest': obj,
     }
     return render(request, 'destinations/destinationsDelete.html', context)
+
+def noAccess(request):
+    context = {}
+    return render(request, 'destinations/403.html', context)
