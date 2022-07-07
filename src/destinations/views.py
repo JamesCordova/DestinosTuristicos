@@ -14,6 +14,8 @@ def destinationsList(request):
 def destinationsShow(request, myID):
     if not(request.user.is_authenticated):# no halle forma que fuese solo una funcion
         return redirect('/accounts/login')
+    if not(request.user.is_staff):
+        return redirect('/403/')
     obj = get_object_or_404(Destination, id = myID)
     context = {
         'dest': obj,
@@ -23,6 +25,8 @@ def destinationsShow(request, myID):
 def destinationsCreate(request):
     if not(request.user.is_authenticated):
         return redirect('/accounts/login')
+    if not(request.user.is_staff):
+        return redirect('/403/')
     form = RawDestinationForm()
     if request.method == 'POST':
         form = RawDestinationForm(request.POST, request.FILES) # segun: https://www.geeksforgeeks.org/imagefield-django-forms/ es necesario el request.FILES en el views.py y el enctype="mulitpart/form-data" en el html
@@ -40,6 +44,8 @@ def destinationsCreate(request):
 def destinationsEdit(request, myID):
     if not(request.user.is_authenticated):
         return redirect('/accounts/login')
+    if not(request.user.is_staff):
+        return redirect('/403/')
     obj = get_object_or_404(Destination, id = myID)
     form = DestinationForm(request.POST or None, request.FILES or None, instance = obj)
     if form.is_valid():
@@ -53,6 +59,8 @@ def destinationsEdit(request, myID):
 def destinationsDelete(request, myID):
     if not(request.user.is_authenticated):
         return redirect('/accounts/login')
+    if not(request.user.is_staff):
+        return redirect('/403/')
     obj = get_object_or_404(Destination, id = myID)
     if request.method == 'POST':
         print('Se borro el elemento')
